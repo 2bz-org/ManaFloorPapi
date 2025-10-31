@@ -1,22 +1,54 @@
 # ManaFloor PlaceholderAPI Expansion
 
-External PlaceholderAPI expansion that exposes `%manafloor_mana%`, returning the floored AuraSkills mana value for a player.
+**ManaFloor** is a PlaceholderAPI expansion that provides the `%manafloor_mana%` placeholder.  
+It retrieves a player’s **current mana value from AuraSkills** and rounds it **down to the nearest whole number** (a floor operation).  
+This ensures clean, integer-only values in displays like HUDs, scoreboards, or menus.
 
-## Installation
+---
 
-1. `mvn -q -DskipTests package`
-2. Copy the built jar to `/plugins/PlaceholderAPI/expansions/ManaFloor-1.0.1.jar`
-3. Restart the server or run `/papi reload`
+## 📦 Installation
 
-## Usage
+1. [Download the latest release](https://github.com/your-repo/ManaFloor/releases)  
+2. Place the `.jar` file into:  
+   `/plugins/PlaceholderAPI/expansions/`
+3. Reload PlaceholderAPI with:  
+   `/papi reload`
 
-Use `%manafloor_mana%` in MythicHUD, DeluxeMenus, scoreboards, or any PlaceholderAPI-compatible plugin.
+---
 
-## Verification
+## ⚙️ Usage
 
-Run `/papi parse <player> %manafloor_mana%` to ensure the placeholder returns a whole number.
+Use `%manafloor_mana%` in any PlaceholderAPI-compatible plugin, including:
+- MythicHUD  
+- DeluxeMenus  
+- Scoreboards  
+- Other PAPI-compatible plugins  
 
-## Requirements
+The placeholder returns the player’s **floored mana value** from AuraSkills.
 
-- PlaceholderAPI
-- AuraSkills with its PlaceholderAPI hook enabled
+---
+
+## 🧪 Verification
+
+Run:
+```
+/papi parse <player> %manafloor_mana%
+```
+If set up correctly, the command will return a whole number like `86` instead of `86.7`.
+
+---
+
+## 🔧 Requirements
+
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)  
+- [AuraSkills](https://www.spigotmc.org/resources/auraskills.104445/) (with PlaceholderAPI hook enabled)
+
+---
+
+## 🏗️ Building from Source
+
+If you want to build it manually instead of downloading:
+```bash
+mvn -q -DskipTests package
+```
+The compiled `.jar` will appear inside the `target/` folder.
